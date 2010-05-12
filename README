@@ -1,0 +1,17 @@
+This migration will convert your mysql tables to INNODB, and create indexes on commonly indexed fields.
+
+These fields are defined in @fields_to_index.  ie:
+
+  @fields_to_index = ['name', 'value', 'type', '_id', 'sku', 'is_', '_at', '_on', 'email', 
+                     'postal', 'zip', 'state', 'country', 'position', 'login', 'bin', 'controller', 
+                     'action', 'token', 'code', 'uuid', 'guid', 'gender', 'link']
+
+NOTE:
+
+You probably want to have your mysql database store a file for each table for INNODB.  This is NOT the default.
+
+The settings for /etc/my.cnf
+
+[mysqld]
+innodb_file_per_table
+default_storage_engine=INNODB
